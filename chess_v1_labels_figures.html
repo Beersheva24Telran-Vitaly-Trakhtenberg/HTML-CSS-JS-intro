@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шахматная доска с разметкой</title>
+    <style>
+        html {
+            min-width: 300px;
+            min-height: 300px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .chessboard-container {
+            position: relative;
+            padding: 20px;
+        }
+
+        .chessboard {
+            width: min(70vw, 70vh);
+            height: min(70vw, 70vh);
+            min-width: 240px;
+            min-height: 240px;
+            background-color: #f0d9b5;
+            background-image:
+                repeating-conic-gradient(
+                    #b58863 0% 25%,
+                    #f0d9b5 0% 50%
+                );
+            background-size: 25% 25%;
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        .h-coords {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 5px 0;
+        }
+
+        .h-coords span {
+            flex: 1;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .v-coords {
+            position: absolute;
+            left: 0;
+            top: 20px;
+            height: min(70vw, 70vh);
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .v-coords span {
+            height: 12.5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            font-weight: bold;
+        }
+
+        .pieces {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: min(70vw, 70vh);
+            height: min(70vw, 70vh);
+        }
+
+        .piece {
+            position: absolute;
+            width: 12.5%;
+            height: 12.5%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: calc(min(70vw, 70vh) / 10);
+            cursor: pointer;
+            transition: left 0.5s, top 0.5s;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 60%, 100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            80% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .piece:hover {
+            animation: bounce 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="chessboard-container">
+        <div class="v-coords">
+            <span>8</span>
+            <span>7</span>
+            <span>6</span>
+            <span>5</span>
+            <span>4</span>
+            <span>3</span>
+            <span>2</span>
+            <span>1</span>
+        </div>
+        <div class="chessboard"></div>
+        <div class="h-coords">
+            <span>a</span>
+            <span>b</span>
+            <span>c</span>
+            <span>d</span>
+            <span>e</span>
+            <span>f</span>
+            <span>g</span>
+            <span>h</span>
+        </div>
+        <div class="pieces">
+            <div class="piece" style="top: 0; left: 0;" id="black_rook_left">♜</div>
+            <div class="piece" style="top: 0; left: 12.5%;" id="black_knight_left">♞</div>
+            <div class="piece" style="top: 0; left: 25%;" id="black_bishop_left">♝</div>
+            <div class="piece" style="top: 0; left: 37.5%;" id="black_queen">♛</div>
+            <div class="piece" style="top: 0; left: 50%;" id="black_king">♚</div>
+            <div class="piece" style="top: 0; left: 62.5%;" id="black_bishop_right">♝</div>
+            <div class="piece" style="top: 0; left: 75%;" id="black_knight_right">♞</div>
+            <div class="piece" style="top: 0; left: 87.5%;" id="black_rook_right">♜</div>
+
+            <div class="piece" style="top: 87.5%; left: 0;" id="white_rook_left">♖</div>
+            <div class="piece" style="top: 87.5%; left: 12.5%;" id="white_knight_left">♘</div>
+            <div class="piece" style="top: 87.5%; left: 25%;" id="white_bishop_left">♗</div>
+            <div class="piece" style="top: 87.5%; left: 37.5%;" id="white_queen">♕</div>
+            <div class="piece" style="top: 87.5%; left: 50%;" id="white_king">♔</div>
+            <div class="piece" style="top: 87.5%; left: 62.5%;" id="white_bishop_right">♗</div>
+            <div class="piece" style="top: 87.5%; left: 75%;" id="white_knight_right">♘</div>
+            <div class="piece" style="top: 87.5%; left: 87.5%;" id="white_rook_right">♖</div>
+        </div>
+    </div>
+</body>
+<script>
+    const white_bishop_right = document.querySelector('#white_bishop_right')
+
+    white_bishop_right.addEventListener('click', function (event) {
+        let position_x = event.srcElement.style.left;
+        let position_y = event.srcElement.style.top;
+        console.log("Белый офицер на " + position_x + ", " + position_y);
+        event.srcElement.style.left = "12.5%";
+        event.srcElement.style.top = "37.5%";
+        position_x = event.srcElement.style.left;
+        position_y = event.srcElement.style.top;
+        console.log("Белый офицер сделал ход на " + position_x + ", " + position_y);
+    })
+</script>
+</html>

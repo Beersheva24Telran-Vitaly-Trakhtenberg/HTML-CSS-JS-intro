@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шахматная доска - CSS Градиенты</title>
+    <style>
+        html {
+            min-width: 300px;
+            min-height: 300px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .chessboard {
+            width: min(80vw, 80vh);
+            height: min(80vw, 80vh);
+            min-width: 240px;
+            min-height: 240px;
+            background-color: #f0d9b5;
+            background-image:
+                repeating-conic-gradient(
+                    #b58863 0% 25%,
+                    #f0d9b5 0% 50%
+                );
+            background-size: 25% 25%;
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        .chessboard::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(to right, transparent 12.5%, transparent 87.5%),
+                linear-gradient(to bottom, transparent 12.5%, transparent 87.5%);
+            background-size: 12.5% 12.5%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="chessboard"></div>
+</body>
+</html>

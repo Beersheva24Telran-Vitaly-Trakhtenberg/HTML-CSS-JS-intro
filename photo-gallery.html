@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="photo-gallery.css" rel="stylesheet"></link>
+</head>
+<body>
+    <div class="gallery-container">
+        <header>
+            <div class="logo-container">
+                <img src="https://toppng.com/uploads/preview/50-px-icon-11553402354bjd5vhjwip.png" alt="Logo" class="logo-image">
+                <h1 class="gallery-title">My Photogallery</h1>
+            </div>
+        </header>
+
+        <aside>
+            <div class="preview-container">
+                <div class="preview-item active" data-index="0">
+                    <img src="https://images.pexels.com/photos/27350233/pexels-photo-27350233/free-photo-of-a-volcano-erupts-with-smoke-coming-out-of-it.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Preview 1" class="preview-image">
+                </div>
+                <div class="preview-item" data-index="1">
+                    <img src="https://images.pexels.com/photos/31837854/pexels-photo-31837854/free-photo-of-blue-pedal-boats-on-a-tranquil-sandy-beach.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Preview 2" class="preview-image">
+                </div>
+                <div class="preview-item" data-index="2">
+                    <img src="https://images.pexels.com/photos/31930138/pexels-photo-31930138/free-photo-of-variety-of-rustic-wooden-kitchen-products-displayed.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Preview 3" class="preview-image">
+                </div>
+                <div class="preview-item" data-index="3">
+                    <img src="https://images.pexels.com/photos/31930012/pexels-photo-31930012/free-photo-of-vibrant-farmer-s-market-fresh-vegetables-display.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Preview 4" class="preview-image">
+                </div>
+                <div class="preview-item" data-index="4">
+                    <img src="https://images.pexels.com/photos/31930107/pexels-photo-31930107/free-photo-of-kerid-crater-lake-in-icelandic-landscape.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Preview 5" class="preview-image">
+                </div>
+                <div class="preview-item" data-index="5">
+                    <img src="https://images.pexels.com/photos/31890680/pexels-photo-31890680/free-photo-of-woman-in-white-dress-surrounded-by-monstera-leaves.jpeg" alt="Preview 6" class="preview-image">
+                </div>
+                <div class="preview-item" data-index="6">
+                    <img src="https://images.pexels.com/photos/27085501/pexels-photo-27085501/free-photo-of-overgrown-wall-of-an-apartment-building.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Preview 7" class="preview-image">
+                </div>
+            </div>
+        </aside>
+
+        <main>
+            <div class="main-image-container">
+                <img src="https://images.pexels.com/photos/27350233/pexels-photo-27350233/free-photo-of-a-volcano-erupts-with-smoke-coming-out-of-it.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Основное изображение" class="main-image" id="main-image">
+
+                <div class="arrow arrow-left" id="prev-btn">
+                    <i class="bi bi-chevron-left"></i>
+                </div>
+                <div class="arrow arrow-right" id="next-btn">
+                    <i class="bi bi-chevron-right"></i>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="photo-gallery.js"></script>
+</body>
+</html>
