@@ -139,6 +139,15 @@ main .main-image-container {
     object-fit: contain;
 }
 
+.main-image.zoomed {
+    height: 100%;
+    width: initial;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: initial;
+    position: absolute;
+}
+
 .preview-item {
     width: var(--preview-size);
     height: var(--preview-size);
@@ -179,7 +188,27 @@ main .main-image-container {
     transform: translateY(-50%);
 }
 
+.zoom {
+    position: absolute;
+    width: var(--arrow-size);
+    height: var(--arrow-size);
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    top: 20px;
+    right: 20px;
+}
+
 .arrow:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.zoom:hover {
     background-color: rgba(255, 255, 255, 0.9);
 }
 

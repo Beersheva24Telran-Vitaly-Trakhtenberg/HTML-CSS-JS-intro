@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const previewItems = document.querySelectorAll('.preview-item');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
+    const zoomBtn = document.getElementById('zoom-btn');
 
     let currentIndex = 0;
     const maxIndex = previewItems.length - 1;
@@ -37,11 +38,17 @@ document.addEventListener('DOMContentLoaded', function() {
         updateActiveImage(newIndex);
     });
 
+    zoomBtn.addEventListener('click', function() {
+        mainImage.classList.toggle('zoomed');
+    });
+
     document.addEventListener('keydown', function(e) {
         if (e.key === 'ArrowLeft') {
             prevBtn.click();
         } else if (e.key === 'ArrowRight') {
             nextBtn.click();
+        } else if (e.key === 'Escape') {
+            zoomBtn.click();
         }
     });
 });
